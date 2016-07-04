@@ -15,6 +15,8 @@ Including another URLconf
 """
 from django.conf.urls import url
 from django.contrib import admin
+from blog.views import PostView
 
 urlpatterns = [
+    url(r'^new_post/', PostView.as_view(), name="new_post"),
 ]

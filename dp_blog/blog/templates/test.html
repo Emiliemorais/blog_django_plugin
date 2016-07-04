@@ -1,0 +1,7 @@
+{% load post_tags %}
+
+{% all_posts as posts %}
+{% for post in posts %}
+	{{post}}
+
+{% endfor %}
