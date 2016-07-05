@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-
 from distutils.core import setup
 
 setup(name='DP Blog',
@@ -13,7 +11,8 @@ setup(name='DP Blog',
         'django=1.9',
     ],
     packages=[
-        'db_blog',
-        'blog',
+        'django_blog',
+        'django_blog.templatetags',
+        'django_blog.migrations',
     ],
 )
