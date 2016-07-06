@@ -12,7 +12,10 @@ setup(name='DP Blog',
     ],
     packages=[
         'django_blog',
-        'django_blog.templatetags',
         'django_blog.migrations',
+        'django_blog.templatetags',
     ],
+    package_data={
+        'django_blog': ['templates/*.html', 'locale/pt_BR/LC_MESSAGES/*']        
+    },
 )

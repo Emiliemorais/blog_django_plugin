@@ -1,0 +1,18 @@
+<form method="post" action="{{ action }}">
+  {% csrf_token %}
+  {{ form }}
+  <input type="submit" />
+</form>
+
+{% block messages %}
+    {% for message in messages %}
+      <div class="alert alert-dismissable {{ message.tags }}">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        {{ message }}
+      </div>
+    {% endfor %}
+    <div id="alert-js" class="alert alert-dismissable alert-warning" hidden>
+      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+      <span id="alert-message"></span>
+    </div>
+{% endblock %}

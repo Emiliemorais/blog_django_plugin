@@ -3,8 +3,9 @@
 """
 
 from django.conf.urls import url
-from views import PostView
+import django_blog.views as views
 
+app_name = 'django_blog'
 urlpatterns = [
-    url(r'^new_post/', PostView.as_view(), name="new_post"),
+    url(r'^$', views.PostView.as_view(), name='post'),
 ]

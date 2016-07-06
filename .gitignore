@@ -3,3 +3,5 @@
 *.mo
 db.sqlite3
 env/
+dp_blog/
+manage.py
