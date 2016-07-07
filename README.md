@@ -1,6 +1,6 @@
 # django_blog
 
-Django_blog is a django app to make posts on your blog.  
+Django_blog is a django app for help you to make posts on your blog.  
 
 Django_blog was developed in Python 2.7.6 with Django 1.9.6.
 
