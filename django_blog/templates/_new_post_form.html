@@ -1,8 +1,6 @@
-<form method="post" action="{{ action }}">
-  {% csrf_token %}
-  {{ form }}
-  <input type="submit" />
-</form>
+{% load i18n %}
+
+{% load django_blog_tags %}
 
 {% block messages %}
     {% for message in messages %}
@@ -11,8 +9,18 @@
         {{ message }}
       </div>
     {% endfor %}
-    <div id="alert-js" class="alert alert-dismissable alert-warning" hidden>
-      <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-      <span id="alert-message"></span>
-    </div>
 {% endblock %}
+
+<form method="post" action="{{ action }}" align="center">
+  {% csrf_token %}
+  {{ form.title.label }}
+  {{ form.title }}
+  <br><br>
+  {{ form.content.label }}
+  <br>
+  {{ form.content }}
+  <br>
+  <button type="submit">
+    {% trans 'Post' %}
+  </button>
+</form>

@@ -8,7 +8,7 @@ from django_blog.forms import PostForm
 register = Library()
 
 @register.simple_tag
-def all_posts():
+def all_posts_old_to_new():
     posts = Post.objects.all()
     return posts 
 
@@ -21,3 +21,8 @@ def new_post():
         'action': url
     }
     return context
+
+@register.simple_tag
+def all_posts_new_to_old():
+    posts = Post.objects.all().order_by('date')[::-1]
+    return posts 

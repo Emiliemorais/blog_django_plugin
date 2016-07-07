@@ -6,12 +6,12 @@ from django.utils.translation import ugettext, ugettext_lazy as _
 
 from forms import PostForm
 
+
 class PostView(View):
     
     # Allowed methods on the view
     http_method_names = [u'post', u'get']
 
-    template_name = '_new_post_form.html'
     form = PostForm
 
     context = {
@@ -19,13 +19,13 @@ class PostView(View):
         'title': 'Post Form',
     }
 
-    def get(self, request):
+    def get(self, request, template_name='_new_post_form.html'):
 
-        response = render(request, self.template_name, self.context) 
+        response = render(request, template_name, self.context) 
     
         return response
 
-    def post(self, request):
+    def post(self, request, template_name='_new_post_form.html'):
         try: 
             form = self.form(data=request.POST)
             if form.is_valid():
@@ -33,7 +33,7 @@ class PostView(View):
                 messages.add_message(request, messages.SUCCESS, _('New post created'))
             else:
                 self.context['form'] = form
-            response = render(request, self.template_name, self.context)
+            response = render(request, template_name, self.context)
         except Exception as e:
             response = HttpResponse(str(e))
 
